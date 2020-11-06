@@ -1,0 +1,19 @@
+{
+  "name": "sergiobogatsky/hangman",
+  "description": "Nangman game for multiple players",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "sergi",
+      "email": "sergiobogatsky@gmail.com"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Hangman\\": "app/"
+    }
+  }
+}
