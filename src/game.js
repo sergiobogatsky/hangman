@@ -61,6 +61,18 @@ window.onload = async function () {
 
         }
     })
+
+    //keyboard of mobile devices:
+    if( navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)) {
+        document.getElementById('keyboard').hidden = false
+        document.getElementById('keyboard').addEventListener('click', function () {
+            this.style.display = "none"
+        })
+    }
 }
 
 function getPlayer(players, turn) {

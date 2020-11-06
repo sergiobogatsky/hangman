@@ -21,6 +21,10 @@ class ApiController implements Controller
     }
 
 
+    /**
+     * Requests made for the api:
+     * @param $data
+     */
     public function processRequest($data)
     {
         $lastPartOfUri = $this->uri[count($this->uri) - 1];
@@ -45,9 +49,7 @@ class ApiController implements Controller
                 $response['status_code_header'] = 'HTTP/1.1 200 OK';
                 $response['body'] = Game::createGame($data);
             }
-            default:
-
-                break;
+            break;
         }
         header($response['status_code_header']);
         header('Content-Type: application/json');

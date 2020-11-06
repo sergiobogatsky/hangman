@@ -18,6 +18,11 @@ class GameController implements Controller
     }
 
 
+    /**
+     * General routing controller function
+     * in case of problems add /hangman/public to the $_SERVER['DOCUMENT_ROOT']
+     * @param $data
+     */
     public function processRequest($data)
     {
         switch ($this->requestMethod) {
@@ -26,7 +31,7 @@ class GameController implements Controller
                     include $file;
                 }
                 else {
-                    include $_SERVER['DOCUMENT_ROOT'] . '/hangman/public/views/index.php';
+                    include  __DIR__ .  '/../../public/views/index.php';
                 }
                 $response['status_code_header'] = 'HTTP/1.1 200 OK';
                 break;
@@ -44,12 +49,12 @@ class GameController implements Controller
      */
     public function checkRouteList($view)
     {
-        $folder = opendir($_SERVER['DOCUMENT_ROOT'] . '/hangman/public/views');
+        $folder = opendir(__DIR__ .  '/../../public/views');
 
         //reading the folder views:
         while ($file = readdir($folder)) {
             if ($view . '.php' == $file) {
-                return $_SERVER['DOCUMENT_ROOT'] . '/hangman/public/views/' . $file;
+                return __DIR__ . './../../public/views/' . $file;
             }
         }
         return false;

@@ -3,6 +3,10 @@ class Game {
 
     }
 
+    /**
+     * @param {string} gameToken
+     * @param {[]} players
+     */
     static startGame(gameToken, players) {
         fetch('./api/new-game',
             {
@@ -42,6 +46,9 @@ class Game {
             });
     }
 
+    /**
+     * @param {string} gameToken
+     */
     static async getGame(gameToken) {
          let result = await fetch('./api/get-game',
             {
@@ -73,6 +80,7 @@ class Game {
          return result
     }
 
+
     static setGame(game) {
         fetch('./api/set-game',
             {
@@ -97,6 +105,21 @@ class Game {
             .catch(function (error) {
                 console.error(error);
             });
+    }
+
+    static async getNewSuperhero() {
+        let result = await fetch('./api/new-hero',
+            {
+                method: 'get',
+            })
+            .then(await function (response) {
+                return response.text();
+            })
+            .catch(await function (error) {
+                console.error(error);
+                return error
+            });
+        return result
     }
 }
 

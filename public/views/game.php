@@ -26,9 +26,12 @@
                                 <label for="word">SUPERHERO:</label>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="keyboard" hidden value="click here to see the keyboard" class="flow-text">
+                                <p  class="flow-text">Just type a letter!</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

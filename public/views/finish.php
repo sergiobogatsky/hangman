@@ -41,9 +41,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col s12 m4  l2 offset-l3">
-            <a  id="edit_game" class="waves-effect waves-light deep-purple accent-1 btn-large right" style="width: 100%;">
-                <i class="material-icons left">brush</i>
+        <div class="col s12 m4 l2 offset-l3">
+            <a  id="same_game" class="waves-effect waves-light deep-purple accent-1 btn-large right" style="width: 100%;">
+                <i class="material-icons left">replay</i>
                 PLAY AGAIN
             </a>
         </div>

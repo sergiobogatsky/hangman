@@ -3,26 +3,27 @@ namespace Hangman\Models;
 
 class Game
 {
-    public function checkGameState()
-    {
 
-    }
-
+    /**
+     * Main function to create game in games.json
+     * @param $request
+     * @return false|string
+     */
     static function createGame($request)
     {
         try {
-            $data = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/hangman/database/files/games.json');
+            $data = file_get_contents(__DIR__.  '/../../database/files/games.json');
             $games = json_decode($data, true);
             foreach ($games['list'] as $key => $game) {
                 if ($game['id'] == $request->id) {
                     $games['list'][$key] = $request;
 
-                    file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/hangman/database/files/games.json', json_encode($games));
+                    file_put_contents(__DIR__ . '/../../database/files/games.json', json_encode($games));
                     return json_encode(['status' => 'game modified']);
                 }
             }
             array_push($games['list'], $request);
-            file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/hangman/database/files/games.json', json_encode($games));
+            file_put_contents(__DIR__.  '/../../database/files/games.json', json_encode($games));
             return json_encode(['status' => 'game created']);
         }
         catch (\Exception $exception) {
@@ -30,10 +31,15 @@ class Game
         }
     }
 
+    /**
+     * Getting existent game in games.json
+     * @param $request
+     * @return false|string
+     */
     static function getGame($request)
     {
         try {
-            $data = file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/hangman/database/files/games.json');
+            $data = file_get_contents(__DIR__ .  '/../../database/files/games.json');
             $games = json_decode($data, true);
             foreach ($games['list'] as $key => $game) {
                 if ($game['id'] == $request->id) {

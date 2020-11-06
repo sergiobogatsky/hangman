@@ -2,6 +2,11 @@ class Cookie {
     constructor() {
 
     }
+    /**
+     * @param {*} cname
+     * @param {*} cvalue
+     * @param {number} exdays
+     */
     static setCookie(cname, cvalue, exdays) {
         var d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -9,6 +14,9 @@ class Cookie {
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
 
+    /**
+     * @param {number} length
+     */
     static setRandomCookieValue(length) {
         let randomChars = function () {
             return Math.random().toString(16).substring(2, 15)
